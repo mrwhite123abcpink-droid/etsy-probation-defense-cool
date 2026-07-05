@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Etsy 运营助理试用期转正答辩</title>
+  <style>
+:root {
+  --bg: #090d12;
+  --panel: rgba(18, 27, 34, .78);
+  --panel-strong: rgba(23, 36, 45, .92);
+  --ink: #eef6f4;
+  --muted: #9fb0b5;
+  --line: rgba(136, 166, 173, .22);
+  --accent: #38d6c2;
+  --accent-2: #b8e0ff;
+  --gold: #d7b46a;
+  --shadow: 0 22px 70px rgba(0, 0, 0, .32);
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  height: 100%;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(56, 214, 194, .14), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(184, 224, 255, .12), transparent 30%),
+    linear-gradient(135deg, #070a0f 0%, #101821 48%, #091114 100%);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
+}
+body { overflow: hidden; }
+.reveal { height: 100vh; width: 100vw; position: relative; }
+.reveal::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
+}
+.slides { height: 100%; width: 100%; }
+section.slide {
+  display: none;
+  height: 100vh;
+  overflow-y: auto;
+  padding: clamp(32px, 5vw, 72px) clamp(24px, 6.5vw, 92px) 98px;
+  scrollbar-gutter: stable;
+}
+section.slide.active { display: block; }
+section.slide::-webkit-scrollbar { width: 10px; }
+section.slide::-webkit-scrollbar-thumb { background: rgba(56, 214, 194, .28); border-radius: 999px; }
+.slide-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: calc(100vh - 160px);
+  position: relative;
+}
+.slide-inner::before {
+  content: "";
+  display: block;
+  width: 68px;
+  height: 3px;
+  margin-bottom: 24px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  border-radius: 999px;
+  box-shadow: 0 0 24px rgba(56, 214, 194, .42);
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.kicker { color: var(--accent); font-weight: 800; }
+.num { color: rgba(238, 246, 244, .48); }
+h1, h2, h3, p { margin-top: 0; }
+h1 {
+  max-width: 980px;
+  font-size: clamp(44px, 7.8vw, 94px);
+  line-height: 1.02;
+  letter-spacing: 0;
+  margin-bottom: 24px;
+  color: #f6fbfa;
+  text-shadow: 0 18px 50px rgba(0,0,0,.45);
+}
+h2 {
+  max-width: 1000px;
+  font-size: clamp(30px, 4.8vw, 58px);
+  line-height: 1.12;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+  color: #f3fbfa;
+}
+h3 { font-size: 20px; margin-bottom: 10px; color: #f1f8f7; }
+.subtitle {
+  max-width: 920px;
+  font-size: clamp(18px, 2.05vw, 25px);
+  line-height: 1.58;
+  color: #cbd9dc;
+  margin-bottom: 34px;
+}
+.hero-note { margin: 38px 0 20px; font-size: 22px; color: var(--muted); }
+.presenter { margin-top: 44px; color: var(--muted); }
+.tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
+.tags span {
+  border: 1px solid rgba(56, 214, 194, .28);
+  background: rgba(56, 214, 194, .08);
+  color: #dffbf6;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+.tags.inline { margin-top: 0; margin-bottom: 26px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 26px 0; }
+article, .callout, .metric, .time-card {
+  background: linear-gradient(180deg, var(--panel-strong), var(--panel));
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+article { padding: 22px; }
+article p, li { color: #c2d0d4; font-size: 16px; line-height: 1.72; }
+ul { padding-left: 1.15em; margin: 0; }
+li + li { margin-top: 8px; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin: 28px 0; }
+.metric { padding: 22px; min-height: 122px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+.metric::after {
+  content: "";
+  position: absolute;
+  inset: auto 18px 0 18px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: .72;
+}
+.metric strong {
+  color: var(--accent);
+  font-size: clamp(35px, 4.4vw, 58px);
+  line-height: 1;
+  margin-bottom: 12px;
+  font-weight: 850;
+  text-shadow: 0 0 26px rgba(56, 214, 194, .22);
+}
+.metric span { color: var(--muted); font-size: 15px; line-height: 1.4; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, .9fr); gap: 26px; align-items: start; margin-top: 26px; }
+.two-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.two-cols > div { padding: 24px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; box-shadow: var(--shadow); }
+.callout { padding: 24px; margin-top: 24px; }
+.emphasis {
+  margin-top: 20px;
+  padding-left: 14px;
+  border-left: 4px solid var(--gold);
+  color: #edf7f5;
+  font-weight: 750;
+  line-height: 1.75;
+}
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 14px; margin: 22px 0; }
+figure { margin: 0; background: rgba(7, 11, 15, .86); border: 1px solid var(--line); border-radius: 8px; padding: 10px; box-shadow: var(--shadow); }
+figure img { width: 100%; max-height: 420px; object-fit: contain; display: block; cursor: zoom-in; border-radius: 4px; background: white; }
+figcaption { margin-top: 8px; color: var(--muted); font-size: 13px; text-align: center; }
+.timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
+.time-card { padding: 24px; }
+.time { color: var(--accent); font-weight: 850; font-size: 32px; margin-bottom: 12px; }
+.closing { max-width: 780px; font-size: clamp(22px, 3vw, 34px); line-height: 1.55; color: #dcebea; margin-top: 44px; }
+.controls { position: fixed; right: 24px; bottom: 22px; display: flex; gap: 8px; z-index: 20; }
+button {
+  appearance: none;
+  border: 1px solid rgba(56, 214, 194, .35);
+  background: rgba(13, 22, 28, .86);
+  color: var(--ink);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+}
+button:hover { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 24px rgba(56, 214, 194, .18); }
+.progress { position: fixed; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(255,255,255,.08); z-index: 21; }
+.bar { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--gold)); transition: width .25s ease; }
+.lightbox { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(3, 6, 9, .88); z-index: 50; padding: 34px; }
+.lightbox.open { display: flex; }
+.lightbox img { max-width: min(94vw, 1400px); max-height: 88vh; object-fit: contain; background: white; border-radius: 8px; box-shadow: 0 24px 100px rgba(0,0,0,.55); cursor: zoom-out; }
+.close { position: fixed; top: 20px; right: 24px; color: white; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.24); }
+@media (max-width: 760px) {
+  body { overflow: hidden; }
+  section.slide { padding: 28px 18px 88px; }
+  .slide-inner::before { margin-bottom: 18px; }
+  .meta { margin-bottom: 24px; }
+  .split, .two-cols, .timeline { grid-template-columns: 1fr; }
+  .metric strong { font-size: 36px; }
+  figure img { max-height: 340px; }
+  .controls { right: 16px; bottom: 16px; }
+}
+@media print {
+  body { overflow: visible; background: #101821; }
+  section.slide { display: block !important; height: auto; page-break-after: always; overflow: visible; }
+  .controls, .progress, .lightbox { display: none !important; }
+}
+</style>
+</head>
+<body>
+  <main class="reveal">
+    <div class="slides">
+      <section class="slide" aria-label="第 1 页"><div class="slide-inner"><div class="meta"><span class="kicker">Etsy 运营助理</span><span class="num">01 / 19</span></div><h1>试用期转正答辩</h1><p class="subtitle">围绕选品、Listing、服务与供应链，沉淀可复用的运营方法。</p><div class="hero-note">试用期工作总结｜关键成果｜转正后 5 组规划</div><div class="tags"><span>全流程执行</span><span>数据化选品</span><span>服务 0 Case</span><span>供应链协同</span><span>SMART 目标</span></div><p class="presenter">运营三部 · 何观晴</p></div></section><section class="slide" aria-label="第 2 页"><div class="slide-inner"><div class="meta"><span class="kicker">目录</span><span class="num">02 / 19</span></div><h2>本次答辩结构</h2><p class="subtitle">按照 SOP 建议，将内容组织为概览、执行过程、数据成果、岗位理解、改进规划和感谢收束。</p><div class="cards"><article><h3>01 工作概览</h3><p>试用期主线与全流程实践。</p></article><article><h3>02 核心动作</h3><p>Listing 优化、eHunt 调研与 1688 供应链验证。</p></article><article><h3>03 关键成果</h3><p>选品方向、宠物纪念石数据反馈与服务 0 Case。</p></article><article><h3>04 岗位理解</h3><p>运营闭环、团队协作与个人成长复盘。</p></article><article><h3>05 转正规划</h3><p>不足改进、SMART 目标与 30/60/90 天行动方案。</p></article></div></div></section><section class="slide" aria-label="第 3 页"><div class="slide-inner"><div class="meta"><span class="kicker">01 工作概览</span><span class="num">03 / 19</span></div><h2>从学习执行到数据沉淀</h2><p class="subtitle">试用期内，我围绕店铺基础、Listing、数据调研、服务交付和团队协同逐步建立工作主线。</p><div class="cards"><article><h3>学习店铺知识</h3><p>熟悉装修、Listing 结构与基础运营指标。</p></article><article><h3>完成全流程实践</h3><p>参与上架、图片优化、AI 润色与主图/标题测试。</p></article><article><h3>数据化选品调研</h3><p>通过 eHunt 数据和 1688 供应链验证判断机会。</p></article><article><h3>服务与交付协同</h3><p>跟进客服、物流与供应商，降低 Case 风险。</p></article><article><h3>团队任务配合</h3><p>配合团队完成上新、优化、反馈与交付闭环。</p></article></div></div></section><section class="slide" aria-label="第 4 页"><div class="slide-inner"><div class="meta"><span class="kicker">02 工作内容</span><span class="num">04 / 19</span></div><h2>掌握店铺运营全流程</h2><p class="subtitle">从商品准备到上线后的优化测试，逐步形成数据化、结果化的运营思路。</p><div class="cards"><article><h3>店铺基础</h3><p>装修、信息整理、页面维护。</p></article><article><h3>Listing 上架</h3><p>标题、描述、标签、定价。</p></article><article><h3>图片优化</h3><p>主图、场景图、详情图。</p></article><article><h3>AI 辅助优化</h3><p>润色描述，强化情绪价值。</p></article><article><h3>流量测试</h3><p>更换主图/标题，对比访问与收藏数据。</p></article></div><div class="callout"><b>具体动作</b><ul><li>完成店铺装修、Listing 上架、图片优化与 AI 描述润色。</li><li>测试主图和标题，观察访问量与收藏变化。</li><li>使用 eHunt 调研关键词，并结合 1688 筛选可落地品类。</li><li>跟进客服、发货和供应商交付，配合团队完成任务。</li></ul></div></div></section><section class="slide" aria-label="第 5 页"><div class="slide-inner"><div class="meta"><span class="kicker">03 Listing 优化</span><span class="num">05 / 19</span></div><h2>主图与标题测试，用数据反馈判断点击吸引力</h2><p class="subtitle">主图/标题测试不是简单“换图”，而是判断买家是否愿意点击。</p><div class="metrics"><div class="metric"><strong>1 → 15</strong><span>近 30 天访问对比</span></div><div class="metric"><strong>0 → 2</strong><span>收藏反馈变化</span></div><div class="metric"><strong>2 款</strong><span>同类商品视觉测试</span></div></div><div class="split"><div><h3>工作动作</h3><ul><li>对主图和标题进行小范围测试。</li><li>用访问量、收藏数判断点击吸引力。</li><li>将有效风格沉淀为后续 Listing 参考。</li></ul><p class="emphasis">结果导向：用数据反馈指导后续 Listing 迭代。</p></div><div class="figures"><figure><img src="reveal-assets/slide04_image01.png" alt="主图/标题测试前后数据对比" loading="lazy"><figcaption>主图/标题测试前后数据对比</figcaption></figure></div></div></div></section><section class="slide" aria-label="第 6 页"><div class="slide-inner"><div class="meta"><span class="kicker">04 数据调研</span><span class="num">06 / 19</span></div><h2>从爆品与关键词进入市场需求</h2><p class="subtitle">先用平台数据验证需求，再用供应链验证可落地性。</p><div class="split"><div><h3>调研路径</h3><ul><li>找爆品：识别成熟方向。</li><li>找关键词：判断搜索需求。</li><li>找竞品：拆解价格、主图与卖点。</li><li>结合 1688：验证成本与交付。</li></ul><p class="emphasis">从需求、竞争、成本和差异化空间判断是否值得上架测试。</p></div><div class="figures"><figure><img src="reveal-assets/slide05_image01.png" alt="eHunt 调研入口与指标" loading="lazy"><figcaption>eHunt 调研入口与指标</figcaption></figure></div></div></div></section><section class="slide" aria-label="第 7 页"><div class="slide-inner"><div class="meta"><span class="kicker">04 数据调研</span><span class="num">07 / 19</span></div><h2>用销量、评论、收藏筛选品类</h2><p class="subtitle">通过竞品表现判断近期热度、长期需求、买家兴趣和利润空间。</p><div class="metrics"><div class="metric"><strong>31 / 30</strong><span>竞品近 7 日销量</span></div><div class="metric"><strong>229 / 1857</strong><span>竞品总销量</span></div><div class="metric"><strong>111 / 957</strong><span>竞品总收藏</span></div><div class="metric"><strong>33 / 373</strong><span>竞品评论量</span></div></div><div class="split"><div><h3>分析重点</h3><ul><li>近 7 日销量：判断近期市场热度。</li><li>总销量：判断长期需求是否稳定。</li><li>收藏数：判断买家兴趣与潜在转化。</li><li>评论数：判断品类成熟度和信任基础。</li><li>价格区间：判断利润与差异化空间。</li></ul><p class="emphasis">结论：宠物纪念石具备稳定需求、强情绪价值和定制化空间，适合二创测试。</p></div><div class="figures"><figure><img src="reveal-assets/slide06_image01.png" alt="竞品数据样本" loading="lazy"><figcaption>竞品数据样本</figcaption></figure></div></div></div></section><section class="slide" aria-label="第 8 页"><div class="slide-inner"><div class="meta"><span class="kicker">05 供应链协同</span><span class="num">08 / 19</span></div><h2>从“能卖”到“能稳定交付”</h2><p class="subtitle">确认市场需求后，继续通过 1688 判断供应稳定性、成本、定制难度和交付时效。</p><div class="split"><div><h3>供应商筛选标准</h3><div class="tags inline"><span>价格合理</span><span>可定制</span><span>交付稳定</span><span>沟通及时</span></div><h3>沟通重点</h3><ul><li>确认生产周期、定制要求、包装方式与发货时效。</li><li>对不同供应商进行沟通磨合，筛选按时按质交付的合作方。</li><li>通过前置确认降低售后争议、差评与 Case 风险。</li></ul></div><div class="figures"><figure><img src="reveal-assets/slide07_image01.png" alt="1688 货源与成本确认" loading="lazy"><figcaption>1688 货源与成本确认</figcaption></figure><figure><img src="reveal-assets/slide07_image02.png" alt="供应商沟通与资源沉淀" loading="lazy"><figcaption>供应商沟通与资源沉淀</figcaption></figure></div></div></div></section><section class="slide" aria-label="第 9 页"><div class="slide-inner"><div class="meta"><span class="kicker">06 关键成果</span><span class="num">09 / 19</span></div><h2>跑出 4 个有销量或有潜力的品类方向</h2><p class="subtitle">通过调研与测试，筛选出具备市场反馈、情绪价值和供应链落地空间的品类。</p><div class="metrics"><div class="metric"><strong>4 个方向</strong><span>选品成果</span></div></div><div class="cards"><article><h3>宠物纪念石</h3><p>情绪价值强，具备稳定市场反馈。</p></article><article><h3>照片音乐盒</h3><p>个性化纪念礼物，已形成销量反馈。</p></article><article><h3>手工/钩织装饰</h3><p>手作感强，适合小众礼品场景。</p></article><article><h3>宠物定制/家居装饰</h3><p>可定制空间大，适合二创延展。</p></article></div><div class="figures"><figure><img src="reveal-assets/slide08_image01.png" alt="宠物纪念石" loading="lazy"><figcaption>宠物纪念石</figcaption></figure><figure><img src="reveal-assets/slide08_image02.png" alt="照片音乐盒" loading="lazy"><figcaption>照片音乐盒</figcaption></figure><figure><img src="reveal-assets/slide08_image03.jpeg" alt="手工装饰" loading="lazy"><figcaption>手工装饰</figcaption></figure><figure><img src="reveal-assets/slide08_image04.png" alt="宠物定制画像" loading="lazy"><figcaption>宠物定制画像</figcaption></figure><figure><img src="reveal-assets/slide08_image05.jpeg" alt="家居装饰样品" loading="lazy"><figcaption>家居装饰样品</figcaption></figure></div></div></section><section class="slide" aria-label="第 10 页"><div class="slide-inner"><div class="meta"><span class="kicker">06 关键成果</span><span class="num">10 / 19</span></div><h2>宠物纪念石取得明确市场反馈</h2><p class="subtitle">从找到需求到验证销量，该品类成为试用期内较有代表性的选品成果。</p><div class="metrics"><div class="metric"><strong>377</strong><span>近 30 天访问</span></div><div class="metric"><strong>27</strong><span>近 30 天收藏</span></div><div class="metric"><strong>18</strong><span>累计销量</span></div><div class="metric"><strong>CA$2,271</strong><span>累计销售额</span></div></div><div class="split"><div><h3>表现说明</h3><ul><li>宠物纪念类产品具备强情绪价值，购买动机明确。</li><li>名字、日期、宠物头像等定制点提升转化可能。</li><li>图片和标题优化后，可继续拓展同类 SKU。</li><li>后续可围绕 pet loss gift、memorial stone、garden remembrance 等关键词深挖。</li></ul></div><div class="figures"><figure><img src="reveal-assets/slide09_image01.png" alt="宠物纪念石产品数据" loading="lazy"><figcaption>宠物纪念石产品数据</figcaption></figure></div></div></div></section><section class="slide" aria-label="第 11 页"><div class="slide-inner"><div class="meta"><span class="kicker">07 服务成果</span><span class="num">11 / 19</span></div><h2>高回复、准时发货，实现 0 Case</h2><p class="subtitle">通过及时回复、定制细节确认、生产发货跟进和售后安抚，降低纠纷风险。</p><div class="metrics"><div class="metric"><strong>100%</strong><span>消息回复率</span></div><div class="metric"><strong>95%–100%</strong><span>按时发货/追踪</span></div><div class="metric"><strong>0</strong><span>Case 数量</span></div><div class="metric"><strong>121</strong><span>订单样本中 0 Case</span></div></div><div class="figures"><figure><img src="reveal-assets/slide10_image01.png" alt="服务指标截图" loading="lazy"><figcaption>服务指标截图</figcaption></figure><figure><img src="reveal-assets/slide10_image02.png" alt="订单与 Case 数据截图" loading="lazy"><figcaption>订单与 Case 数据截图</figcaption></figure></div><p class="emphasis">在订单增长过程中，仍保持 0 Case，是服务动作前置和交付跟进的结果。</p></div></section><section class="slide" aria-label="第 12 页"><div class="slide-inner"><div class="meta"><span class="kicker">07 服务成果</span><span class="num">12 / 19</span></div><h2>0 Case 背后的动作：把问题解决在发生前</h2><p class="subtitle">Etsy 客服不是被动回复，而是通过沟通、确认与交付跟进提前降低风险。</p><div class="cards"><article><h3>售前确认</h3><p>确认定制要求、颜色、文字、图片、交期，减少理解偏差。</p></article><article><h3>制作跟进</h3><p>与供应商同步制作进度，必要时优先安排或解释时间。</p></article><article><h3>发货管理</h3><p>关注物流单号、发货节点与平台时效，减少超时风险。</p></article><article><h3>售后安抚</h3><p>先安抚情绪，再提供解决方案，避免升级为 Case。</p></article><article><h3>问题复盘</h3><p>把高频问题沉淀为话术、选项图和 Listing 提示。</p></article></div></div></section><section class="slide" aria-label="第 13 页"><div class="slide-inner"><div class="meta"><span class="kicker">08 岗位理解</span><span class="num">13 / 19</span></div><h2>岗位价值在于推进运营闭环</h2><p class="subtitle">能执行、会看数据、守住服务与风控底线，是转正后持续输出结果的基础。</p><div class="cards"><article><h3>岗位职责</h3><p>完成“上架—测试—转化—交付—复盘”的运营闭环，提升店铺稳定性。</p></article><article><h3>业务流程</h3><p>选品调研 → 供应链确认 → Listing 制作 → 上架测试 → 客服发货 → 数据复盘 → 二次优化。</p></article><article><h3>团队协作</h3><p>运营需要组内、图片、供应商、发货与客服协同；我的角色是推进、反馈和复盘。</p></article></div></div></section><section class="slide" aria-label="第 14 页"><div class="slide-inner"><div class="meta"><span class="kicker">09 成长复盘</span><span class="num">14 / 19</span></div><h2>从执行到可复用的方法沉淀</h2><p class="subtitle">试用期最大的收获，是开始用数据、需求、供应链和风控看待运营。</p><div class="cards"><article><h3>全流程能力</h3><p>掌握装修、上架、优化、复盘流程。</p></article><article><h3>数据意识</h3><p>用访问、收藏、销量、Case 判断效果。</p></article><article><h3>选品判断</h3><p>从“好看”转向需求、供应链和利润判断。</p></article><article><h3>服务意识</h3><p>及时沟通，降低纠纷风险。</p></article><article><h3>协作意识</h3><p>理解跨环节信息同步的重要性。</p></article></div></div></section><section class="slide" aria-label="第 15 页"><div class="slide-inner"><div class="meta"><span class="kicker">10 不足与改进</span><span class="num">15 / 19</span></div><h2>评分与风控能力仍需重点加强</h2><p class="subtitle">不回避问题，把评分和风控作为转正后持续提升的核心能力。</p><div class="two-cols"><div><h3>当前不足</h3><ul><li>对评分较低店铺的整体掌控能力不足。</li><li>对平台风控规则、警告原因、封店风险的理解还不够系统。</li><li>对 Listing 内容、供应商交付、售后风险之间的预判能力仍需加强。</li></ul></div><div><h3>改进方向</h3><ul><li>建立店铺评分监控表，记录低分原因、对应订单、处理状态和复盘结论。</li><li>建立风控检查清单，覆盖图片、标题、描述、侵权风险、物流异常和客户投诉。</li><li>复盘警告与封店案例，归类原因、预防动作和责任节点。</li><li>对高风险订单提前沟通，必要时调整交期或制作方案。</li></ul></div></div></div></section><section class="slide" aria-label="第 16 页"><div class="slide-inner"><div class="meta"><span class="kicker">11 转正规划</span><span class="num">16 / 19</span></div><h2>独立负责 5 组，按 SMART 推进</h2><p class="subtitle">围绕上新、优化、服务、供应链与风控，推进可衡量目标。</p><div class="cards"><article><h3>S 具体</h3><p>围绕 5 组店铺，推进选品、AI 辅助 Listing 上架、图片/标题优化与客服供应链协同。</p></article><article><h3>M 可衡量</h3><p>每月 Listing 上架/优化 ≥120 个；主图/标题测试 ≥10 条；回复率 ≥95%；Case 保持 0。</p></article><article><h3>A 可实现</h3><p>基于 eHunt + 1688 和 AI 辅助流程提升执行效率。</p></article><article><h3>R 相关性</h3><p>服务于流量、转化、好评、交付和风控。</p></article><article><h3>T 有时限</h3><p>按 30/60/90 天复盘，月度输出数据总结。</p></article></div><p class="emphasis">核心目标：5 组形成“AI 高效上新、持续测试、服务 0 Case、风控可控”的节奏。</p></div></section><section class="slide" aria-label="第 17 页"><div class="slide-inner"><div class="meta"><span class="kicker">11 转正规划</span><span class="num">17 / 19</span></div><h2>30 / 60 / 90 天行动方案</h2><p class="subtitle">目标清晰、路径明确，以月度数据总结衡量执行结果。</p><div class="timeline"><article class="time-card"><div class="time">30 天</div><h3>搭建基础盘</h3><ul><li>梳理 5 组店铺现状。</li><li>建立上新/客服/风控表。</li><li>明确关键词池。</li><li>启动 AI 辅助 Listing 上架。</li></ul></article><article class="time-card"><div class="time">60 天</div><h3>形成测试节奏</h3><ul><li>固定 eHunt + 1688 流程。</li><li>每周复盘主图/标题。</li><li>筛选重点供应商。</li><li>建立低分预警。</li></ul></article><article class="time-card"><div class="time">90 天</div><h3>沉淀可复制方法</h3><ul><li>沉淀品类打法。</li><li>优化客服模板。</li><li>建立供应商分层。</li><li>达成月度 120 个 Listing。</li></ul></article></div><p class="emphasis">结果衡量：每月 AI 辅助 Listing ≥120 个，并跟踪访问、收藏、销量、Case 和评分。</p></div></section><section class="slide" aria-label="第 18 页"><div class="slide-inner"><div class="meta"><span class="kicker">12 感谢与展望</span><span class="num">18 / 19</span></div><h1>感谢从 0 到 1 的培养与团队支持</h1><p class="subtitle">转正后，我会把试用期方法沉淀为 5 组稳定执行标准，持续输出可衡量成果。</p><div class="cards"><article><h3>感谢师傅</h3><p>从流程、标准到判断方法，一步步指导我把工作做细、做准、做出结果。</p></article><article><h3>感谢团队</h3><p>在选品、图片、客服、供应商协同中给予帮助，让我更快融入工作节奏。</p></article><article><h3>感谢领导</h3><p>给予试错、复盘和成长机会，让我在真实业务中提升结果意识和责任感。</p></article></div></div></section><section class="slide" aria-label="第 19 页"><div class="slide-inner"><div class="meta"><span class="kicker">THANK YOU</span><span class="num">19 / 19</span></div><h2>感谢聆听</h2><p class="subtitle">请领导批评指正</p><p class="closing">转正后，我会把试用期积累的方法，转化为 5 组稳定、可衡量的运营结果。</p></div></section>
+    </div>
+  </main>
+  <div class="controls" aria-label="演示导航">
+    <button type="button" data-prev aria-label="上一页">‹</button>
+    <button type="button" data-next aria-label="下一页">›</button>
+  </div>
+  <div class="progress"><div class="bar"></div></div>
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="图片放大预览">
+    <button type="button" class="close" aria-label="关闭">×</button>
+    <img alt="">
+  </div>
+  <script>
+const slides = Array.from(document.querySelectorAll('section.slide'));
+const bar = document.querySelector('.bar');
+let index = Math.max(0, Math.min(slides.length - 1, Number(location.hash.replace('#/', '')) - 1 || 0));
+
+function show(next) {
+  index = (next + slides.length) % slides.length;
+  slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+  slides[index].scrollTop = 0;
+  bar.style.width = `${((index + 1) / slides.length) * 100}%`;
+  history.replaceState(null, '', `#/${index + 1}`);
+}
+
+function jumpFromHash() {
+  const raw = Number(location.hash.replace('#/', ''));
+  if (Number.isFinite(raw) && raw >= 1 && raw <= slides.length && raw - 1 !== index) {
+    show(raw - 1);
+  }
+}
+
+document.querySelector('[data-prev]').addEventListener('click', () => show(index - 1));
+document.querySelector('[data-next]').addEventListener('click', () => show(index + 1));
+document.addEventListener('keydown', (event) => {
+  if (document.querySelector('.lightbox.open')) {
+    if (event.key === 'Escape') closeLightbox();
+    return;
+  }
+  if (['ArrowRight', 'PageDown', ' '].includes(event.key)) show(index + 1);
+  if (['ArrowLeft', 'PageUp'].includes(event.key)) show(index - 1);
+});
+
+const lightbox = document.querySelector('.lightbox');
+const lightboxImg = lightbox.querySelector('img');
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightboxImg.removeAttribute('src');
+}
+document.querySelectorAll('figure img').forEach((img) => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('open');
+  });
+});
+lightbox.addEventListener('click', closeLightbox);
+document.querySelector('.close').addEventListener('click', closeLightbox);
+window.addEventListener('hashchange', jumpFromHash);
+show(index);
+</script>
+</body>
+</html>
